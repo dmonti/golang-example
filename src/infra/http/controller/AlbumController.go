@@ -14,13 +14,13 @@ func NewAlbumController() Controller {
 	controller := Controller{}
 	controller.BasePath = "/albums"
 	controller.Endpoints = []Endpoint{
-		NewAlbumIdEndpoint(),
-		NewAlbumFilterEndpoint(),
+		NewFindAlbumByIdEndpoint(),
+		NewFindAlbumsByFilterEndpoint(),
 	}
 	return controller
 }
 
-func NewAlbumIdEndpoint() Endpoint {
+func NewFindAlbumByIdEndpoint() Endpoint {
 	endpoint := Endpoint{}
 	endpoint.RelativePath = "/:id"
 	endpoint.Handler = func(c *gin.Context) {
@@ -31,7 +31,7 @@ func NewAlbumIdEndpoint() Endpoint {
 	return endpoint
 }
 
-func NewAlbumFilterEndpoint() Endpoint {
+func NewFindAlbumsByFilterEndpoint() Endpoint {
 	endpoint := Endpoint{}
 	endpoint.RelativePath = ""
 	endpoint.Handler = func(c *gin.Context) {
