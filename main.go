@@ -2,10 +2,12 @@ package main
 
 import (
 	"example/src/infra/http"
-	"fmt"
+	"log/slog"
+	"os"
+	"runtime"
 )
 
 func main() {
-	server := http.Run()
-	fmt.Printf("server started: %v\n", server)
+	slog.Info("Starting example:", "version", runtime.Version(), "PID", os.Getpid())
+	http.Run()
 }
